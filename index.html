@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>DigiSenior - Inclusão Digital para Idosos</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "accent": "#0f8a7a",
+                        "accent-dark": "#0c6d60",
+                        "on-accent": "#ffffff",
+                        "surface-variant": "#dce3ee",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#5c6188",
+                        "secondary": "#6a7394",
+                        "surface-dim": "#e2e8f0",
+                        "on-secondary-container": "#2e3448",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#1a1f2e",
+                        "on-secondary-fixed-variant": "#4a5568",
+                        "surface-container-low": "#eef2f8",
+                        "primary-container": "#2f377f",
+                        "inverse-primary": "#c7cdf5",
+                        "inverse-on-surface": "#f8fafc",
+                        "tertiary-fixed-dim": "#c5c9dc",
+                        "on-primary-container": "#eef1ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#141824",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#1a1c28",
+                        "on-tertiary-container": "#e8e9f2",
+                        "secondary-container": "#e2e8f4",
+                        "primary": "#3d47a8",
+                        "secondary-fixed-dim": "#dde4f0",
+                        "surface": "#f8fafc",
+                        "secondary-fixed": "#eef2f8",
+                        "tertiary-fixed": "#e4e7f5",
+                        "surface-bright": "#ffffff",
+                        "surface-container": "#f1f4f9",
+                        "tertiary": "#6a7394",
+                        "outline-variant": "#c8cedc",
+                        "surface-tint": "#3d47a8",
+                        "on-surface-variant": "#5c6378",
+                        "inverse-surface": "#1e2130",
+                        "background": "#f8fafc",
+                        "on-primary-fixed": "#16192a",
+                        "outline": "#94a0b8",
+                        "on-background": "#141824",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#4a4e91",
+                        "surface-container-highest": "#e2e8f0",
+                        "on-primary-fixed-variant": "#3d47a8",
+                        "primary-fixed-dim": "#c5cbf5",
+                        "error": "#c62828",
+                        "surface-container-high": "#e8edf4",
+                        "primary-fixed": "#dce2fc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Lexend"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Lexend"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+            font-size: 32px;
+        }
+    </style>
+    <link href="styles.css" rel="stylesheet" />
+</head>
+
+<body class="font-body text-on-surface">
+    <!-- TopNavBar: logo + menu desktop + CTA + hambúrguer (mobile) -->
+    <nav class="fixed top-0 w-full z-50 glass-nav shadow-sm" aria-label="Principal">
+        <div class="flex items-center justify-between gap-3 sm:gap-4 px-4 sm:px-8 py-3 sm:py-4 max-w-7xl mx-auto">
+            <a class="flex items-center shrink-0 min-h-[44px]" href="#inicio" aria-label="DigiSenior — Início">
+                <img alt="DigiSenior" class="header-logo" height="56" src="logoVelhosSemFundo.png" width="200" />
+            </a>
+
+            <!-- Links desktop (scroll spy: classe .active via JS) -->
+            <div
+                class="hidden md:flex flex-1 justify-center items-center gap-6 lg:gap-8 font-headline text-base font-medium">
+                <a class="nav-link pb-1" data-section="inicio" href="#inicio">Início</a>
+                <a class="nav-link pb-1" data-section="problema" href="#problema">O Problema</a>
+                <a class="nav-link pb-1" data-section="impacto" href="#impacto">Impacto</a>
+                <a class="nav-link pb-1" data-section="solucao" href="#solucao">Nossa Solução</a>
+                <a class="nav-link pb-1" data-section="equipe" href="#equipe">Equipe</a>
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0">
+                <a class="hidden md:inline-flex ds-btn-interactive ds-btn-primary-accent bg-accent hover:bg-accent-dark text-on-accent px-5 lg:px-6 py-2.5 lg:py-3 rounded-xl font-headline font-semibold text-sm lg:text-base items-center justify-center min-h-[44px]"
+                    href="#cta-final">Conheça a solução</a>
+                <button type="button" id="hamburger-btn" class="hamburger md:hidden" aria-label="Abrir menu"
+                    aria-expanded="false" aria-controls="mobile-menu-panel">
+                    <span id="hamburger-icon-label" class="hamburger-label" aria-hidden="true">&#9776;</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu mobile: backdrop + painel (slide + fade) -->
+        <div id="mobile-menu-backdrop" class="mobile-menu-backdrop md:hidden" aria-hidden="true"></div>
+        <div id="mobile-menu-panel" class="mobile-menu-panel md:hidden" role="dialog" aria-modal="true"
+            aria-label="Menu de navegação" aria-hidden="true">
+            <a class="nav-link" data-section="inicio" href="#inicio">Início</a>
+            <a class="nav-link" data-section="problema" href="#problema">O Problema</a>
+            <a class="nav-link" data-section="impacto" href="#impacto">Impacto</a>
+            <a class="nav-link" data-section="solucao" href="#solucao">Nossa Solução</a>
+            <a class="nav-link" data-section="equipe" href="#equipe">Equipe</a>
+            <a class="mt-4 w-full text-center ds-btn-interactive ds-btn-primary-accent bg-accent hover:bg-accent-dark text-on-accent px-6 py-3 rounded-xl font-headline font-semibold"
+                href="#cta-final">Conheça a solução</a>
+        </div>
+    </nav>
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section class="ds-section-white max-w-7xl mx-auto px-8 py-16 md:py-24 grid md:grid-cols-2 items-center gap-16"
+            id="inicio">
+            <div class="space-y-8">
+                <h1 class="font-headline text-5xl md:text-7xl font-extrabold leading-[1.1] text-primary">
+                    Tecnologia que conecta todas as gerações
+                </h1>
+                <p class="text-xl md:text-2xl text-on-surface-variant leading-relaxed max-w-xl">
+                    Idosos estão sendo excluídos digitalmente por interfaces complexas. A DigiSenior muda isso.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a class="ds-btn-interactive ds-btn-primary-accent bg-gradient-to-br from-accent to-accent-dark text-on-accent px-8 py-4 rounded-2xl text-lg font-bold text-center shadow-lg min-h-[56px] flex items-center justify-center"
+                        href="#cta-final">
+                        Conheça a solução
+                    </a>
+                    <a class="text-primary font-bold text-lg px-8 py-4 rounded-2xl hover:bg-surface-container-low transition-colors duration-300 text-center flex items-center justify-center"
+                        href="#problema">
+                        Saiba mais
+                    </a>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl bg-surface-container-low">
+                    <img alt="Idosos usando celular com acesso digital" class="hero-image w-full h-full" height="800"
+                        src="idososNoCelular.png" width="800" />
+                </div>
+                <!-- Asymmetric accent -->
+                <div
+                    class="absolute -bottom-8 -left-8 bg-secondary-container p-8 rounded-2xl hidden lg:block max-w-[200px]">
+                    <span class="material-symbols-outlined icon-tone-mint ds-icon-interactive block mb-2"
+                        data-icon="favorite">favorite</span>
+                    <p class="font-headline font-bold text-on-secondary-fixed">Cuidado em cada clique</p>
+                </div>
+            </div>
+        </section>
+        <!-- Problem Section (Bento Grid) -->
+        <section class="ds-section-alt py-24" id="problema">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="mb-16">
+                    <span class="text-primary font-bold tracking-widest uppercase text-sm font-headline">O Desafio
+                        Atual</span>
+                    <h2 class="text-4xl md:text-5xl font-headline font-bold text-on-surface mt-4">Barreiras do Mundo
+                        Digital</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div
+                        class="group md:col-span-2 bg-surface-container-lowest p-10 rounded-2xl shadow-sm space-y-4 hover:translate-y-[-4px] transition-transform">
+                        <span class="material-symbols-outlined icon-tone-brand ds-icon-interactive"
+                            data-icon="extension">extension</span>
+                        <h3 class="text-2xl font-headline font-bold">Interfaces confusas</h3>
+                        <p class="text-lg text-on-surface-variant">Layouts desorganizados que dificultam a localização
+                            de funções básicas e geram perda de tempo.</p>
+                    </div>
+                    <div
+                        class="group bg-surface-container-lowest p-10 rounded-2xl shadow-sm space-y-4 hover:translate-y-[-4px] transition-transform">
+                        <span class="material-symbols-outlined icon-tone-warm ds-icon-interactive"
+                            data-icon="info">info</span>
+                        <h3 class="text-2xl font-headline font-bold">Excesso de informação</h3>
+                        <p class="text-lg text-on-surface-variant">Poluição visual e notificações constantes que
+                            sobrecarregam cognitivamente o usuário.</p>
+                    </div>
+                    <div
+                        class="group bg-surface-container-lowest p-10 rounded-2xl shadow-sm space-y-4 hover:translate-y-[-4px] transition-transform">
+                        <span class="material-symbols-outlined icon-tone-mint ds-icon-interactive"
+                            data-icon="settings_accessibility">settings_accessibility</span>
+                        <h3 class="text-2xl font-headline font-bold">Falta de adaptação</h3>
+                        <p class="text-lg text-on-surface-variant">Fontes pequenas e contrastes baixos que ignoram as
+                            necessidades visuais naturais.</p>
+                    </div>
+                    <div class="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div
+                            class="group bg-surface-container-lowest p-10 rounded-2xl shadow-sm space-y-4 hover:translate-y-[-4px] transition-transform border-l-4 border-error">
+                            <span class="material-symbols-outlined text-error" data-icon="error">error</span>
+                            <h3 class="text-2xl font-headline font-bold">Frustração e insegurança</h3>
+                            <p class="text-lg text-on-surface-variant">O medo de errar ou ser vítima de golpes afasta os
+                                idosos da inovação.</p>
+                        </div>
+                        <div
+                            class="group bg-surface-container-lowest p-10 rounded-2xl shadow-sm space-y-4 hover:translate-y-[-4px] transition-transform border-l-4 border-primary">
+                            <span class="material-symbols-outlined icon-tone-sky ds-icon-interactive"
+                                data-icon="cloud_off">cloud_off</span>
+                            <h3 class="text-2xl font-headline font-bold">Exclusão digital</h3>
+                            <p class="text-lg text-on-surface-variant">A falta de acesso e compreensão isola socialmente
+                                uma parcela vital da população.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Impact Section -->
+        <section class="py-32 bg-primary text-on-primary" id="impacto">
+            <div class="max-w-7xl mx-auto px-8 text-center">
+                <div
+                    class="inline-block bg-primary-container px-6 py-2 rounded-full mb-8 font-headline font-bold text-on-primary-container">
+                    Realidade Brasileira
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+                    <span class="text-8xl md:text-9xl font-headline font-black text-on-primary-container">66%</span>
+                    <div class="max-w-xl text-left">
+                        <h2 class="text-3xl md:text-4xl font-headline font-bold leading-tight">
+                            dos idosos no Brasil não sabem usar tecnologia digital
+                        </h2>
+                        <p class="text-xl mt-6 text-white/90">
+                            A tecnologia deve ser uma ponte, não uma barreira. Nosso propósito é reduzir esse número
+                            através de empatia e design consciente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Solution Section -->
+        <section class="ds-section-white py-24" id="solucao">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="text-center mb-20 max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-headline font-bold text-on-surface mb-6">A Nossa Solução</h2>
+                    <p class="text-xl text-on-surface-variant leading-relaxed">
+                        Redesenhamos a experiência digital focando no que realmente importa: clareza, paciência e
+                        usabilidade.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="group">
+                        <div
+                            class="w-20 h-20 bg-secondary-container rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-6 transition-transform">
+                            <span class="material-symbols-outlined icon-tone-brand ds-icon-interactive"
+                                data-icon="widgets">widgets</span>
+                        </div>
+                        <h3 class="text-2xl font-headline font-bold mb-4">Interface simples</h3>
+                        <p class="text-lg text-on-surface-variant leading-relaxed">Elementos visuais claros, botões
+                            generosos e caminhos lógicos para uma navegação sem esforço.</p>
+                    </div>
+                    <div class="group">
+                        <div
+                            class="w-20 h-20 bg-secondary-container rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-6 transition-transform">
+                            <span class="material-symbols-outlined icon-tone-warm ds-icon-interactive"
+                                data-icon="auto_awesome">auto_awesome</span>
+                        </div>
+                        <h3 class="text-2xl font-headline font-bold mb-4">Experiência adaptada</h3>
+                        <p class="text-lg text-on-surface-variant leading-relaxed">Ajustes automáticos de contraste e
+                            tamanho de fonte baseados no perfil de cada usuário.</p>
+                    </div>
+                    <div class="group">
+                        <div
+                            class="w-20 h-20 bg-secondary-container rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-6 transition-transform">
+                            <span class="material-symbols-outlined icon-tone-mint ds-icon-interactive"
+                                data-icon="group_add">group_add</span>
+                        </div>
+                        <h3 class="text-2xl font-headline font-bold mb-4">Inclusão digital</h3>
+                        <p class="text-lg text-on-surface-variant leading-relaxed">Mais do que ferramentas, entregamos
+                            autonomia para que todos possam se conectar com quem amam.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Mission Vision Values (Asymmetric Cards) -->
+        <section class="ds-section-alt py-24">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-4xl font-headline font-bold text-on-surface mb-12">Nosso DNA Social</h2>
+                        <div class="space-y-12">
+                            <div class="group flex gap-6 items-start">
+                                <div class="bg-white p-4 rounded-xl shadow-sm">
+                                    <span class="material-symbols-outlined icon-tone-brand ds-icon-interactive"
+                                        data-icon="rocket_launch">rocket_launch</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-headline font-bold mb-2">Missão</h4>
+                                    <p class="text-on-surface-variant text-lg">Incluir idosos no mundo digital de forma
+                                        simples e acessível.</p>
+                                </div>
+                            </div>
+                            <div class="group flex gap-6 items-start">
+                                <div class="bg-white p-4 rounded-xl shadow-sm">
+                                    <span class="material-symbols-outlined icon-tone-mint ds-icon-interactive"
+                                        data-icon="visibility">visibility</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-headline font-bold mb-2">Visão</h4>
+                                    <p class="text-on-surface-variant text-lg">Ser referência em inclusão digital para a
+                                        terceira idade no cenário nacional.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ds-section-white p-12 rounded-3xl shadow-sm border border-outline-variant/20">
+                        <h4 class="text-2xl font-headline font-bold mb-8">Nossos Valores</h4>
+                        <div class="grid grid-cols-2 gap-8">
+                            <div class="group text-center p-6 rounded-2xl bg-surface-container-low">
+                                <span class="material-symbols-outlined icon-tone-brand ds-icon-interactive mb-3"
+                                    data-icon="volunteer_activism">volunteer_activism</span>
+                                <p class="font-headline font-bold">Empatia</p>
+                            </div>
+                            <div class="group text-center p-6 rounded-2xl bg-surface-container-low">
+                                <span class="material-symbols-outlined icon-tone-mint ds-icon-interactive mb-3"
+                                    data-icon="accessible">accessible</span>
+                                <p class="font-headline font-bold">Acessibilidade</p>
+                            </div>
+                            <div class="group text-center p-6 rounded-2xl bg-surface-container-low">
+                                <span class="material-symbols-outlined icon-tone-warm ds-icon-interactive mb-3"
+                                    data-icon="lightbulb">lightbulb</span>
+                                <p class="font-headline font-bold">Inovação</p>
+                            </div>
+                            <div class="group text-center p-6 rounded-2xl bg-surface-container-low">
+                                <span class="material-symbols-outlined icon-tone-sky ds-icon-interactive mb-3"
+                                    data-icon="task_alt">task_alt</span>
+                                <p class="font-headline font-bold">Simplicidade</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Team Section -->
+        <section class="ds-section-white py-24" id="equipe">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="mb-16">
+                    <h2 class="text-4xl md:text-5xl font-headline font-bold text-on-surface">Quem faz acontecer</h2>
+                    <p class="text-xl text-on-surface-variant mt-4">Um time dedicado a transformar o futuro do
+                        envelhecimento digital.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Lucas Alves -->
+                    <div
+                        class="ds-team-card text-center sm:text-left bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/10">
+                        <div class="team-avatar-wrap mx-auto sm:mx-0">
+                            <img alt="Lucas Alves" class="team-avatar" height="256" src="lucas.jpeg" width="256" />
+                        </div>
+                        <h4 class="text-xl font-headline font-bold">Lucas Alves</h4>
+                        <p class="text-primary font-medium">Estratégia de Negócio &amp; Produto</p>
+                    </div>
+                    <!-- Orlando Cabral -->
+                    <div
+                        class="ds-team-card text-center sm:text-left bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/10">
+                        <div class="team-avatar-wrap mx-auto sm:mx-0">
+                            <img alt="Orlando Cabral" class="team-avatar" height="256" src="Orlando.jpeg" width="256" />
+                        </div>
+                        <h4 class="text-xl font-headline font-bold">Orlando Cabral</h4>
+                        <p class="text-primary font-medium">Tech Lead</p>
+                    </div>
+                    <!-- Ryan Guilherme -->
+                    <div
+                        class="ds-team-card text-center sm:text-left bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/10">
+                        <div class="team-avatar-wrap mx-auto sm:mx-0">
+                            <img alt="Ryan Guilherme" class="team-avatar" height="256" src="Ryan.jpeg" width="256" />
+                        </div>
+                        <h4 class="text-xl font-headline font-bold">Ryan Guilherme</h4>
+                        <p class="text-primary font-medium">UX/UI &amp; Prototipação</p>
+                    </div>
+                    <!-- Leonardo Tirado -->
+                    <div
+                        class="ds-team-card text-center sm:text-left bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/10">
+                        <div class="team-avatar-wrap mx-auto sm:mx-0">
+                            <img alt="Leonardo Tirado" class="team-avatar" height="256" src="Leonardo.png" width="256" />
+                        </div>
+                        <h4 class="text-xl font-headline font-bold">Leonardo Tirado</h4>
+                        <p class="text-primary font-medium">Desenvolvedor</p>
+                    </div>
+                    <!-- Vinicius Nakazaki -->
+                    <div
+                        class="ds-team-card text-center sm:text-left bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/10">
+                        <div class="team-avatar-wrap mx-auto sm:mx-0">
+                            <img alt="Vinicius Nakazaki" class="team-avatar" height="256" src="Vincius.jpeg" width="256" />
+                        </div>
+                        <h4 class="text-xl font-headline font-bold">Vinicius Nakazaki</h4>
+                        <p class="text-primary font-medium">Desenvolvedor</p>
+                    </div>
+                    <!-- Matheus Villanova -->
+                    <div
+                        class="ds-team-card text-center sm:text-left bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/10">
+                        <div class="team-avatar-wrap mx-auto sm:mx-0">
+                            <img alt="Matheus Villanova" class="team-avatar" height="256" src="Matheus.jpeg" width="256" />
+                        </div>
+                        <h4 class="text-xl font-headline font-bold">Matheus Villanova</h4>
+                        <p class="text-primary font-medium">Desenvolvedor</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Final CTA (âncora do botão "Conheça a solução") -->
+        <section class="ds-section-tint max-w-7xl mx-auto px-8 py-24 text-center" id="cta-final">
+            <div class="bg-surface-bright/95 border border-outline-variant/25 rounded-3xl p-16 space-y-8 shadow-sm">
+                <h2 class="text-4xl md:text-5xl font-headline font-bold text-on-surface">Vamos conectar mais vidas através
+                    da tecnologia</h2>
+                <p class="text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+                    A jornada da inclusão digital está apenas começando. Junte-se a nós para construir um mundo mais
+                    acessível.
+                </p>
+                <button
+                    class="ds-btn-interactive ds-btn-primary-accent bg-accent hover:bg-accent-dark text-on-accent px-12 py-5 rounded-2xl text-xl font-bold shadow-lg min-h-[56px]"
+                    type="button">
+                    Baixe aqui!
+                </button>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full py-12 px-8 bg-surface-container-low border-t border-outline-variant/30">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
+            <div class="flex flex-col items-center md:items-start gap-2">
+                <span class="font-headline font-bold text-lg text-primary">DigiSenior</span>
+                <p class="font-body text-sm text-on-surface-variant">© 2026 DigiSenior. Tecnologia que conecta todas as
+                    gerações.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-8 font-body text-sm">
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Termos de Uso</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Privacidade</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Contato</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Acessibilidade</a>
+            </div>
+            <button
+                class="group text-primary hover:text-primary-container p-2 rounded-full hover:bg-surface-container transition-colors duration-300"
+                onclick="window.scrollTo({top: 0, behavior: 'smooth'})" type="button">
+                <span class="material-symbols-outlined icon-tone-brand ds-icon-interactive"
+                    data-icon="arrow_upward">arrow_upward</span>
+            </button>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+
+</html>
