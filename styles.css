@@ -543,3 +543,43 @@ body {
 .footer-back-top:hover .material-symbols-outlined {
     transform: translateY(-2px);
 }
+
+/* ---------- Missão, Visão e Valores (DNA Social) — tipografia e mobile ---------- */
+.section-dna-social .dna-mission-row p,
+.section-dna-social .dna-value-card p {
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.section-dna-social .dna-value-card {
+    padding: 1.25rem 1rem;
+    min-height: 7.5rem;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+@media (min-width: 768px) {
+    .section-dna-social .dna-value-card {
+        padding: 1.5rem 1.25rem;
+        min-height: 8.5rem;
+    }
+}
+
+.section-dna-social .dna-value-card:hover {
+    box-shadow: 0 8px 24px rgba(61, 71, 168, 0.08);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .section-dna-social .dna-value-card {
+        min-height: 6.75rem;
+        padding: 1.35rem 1.15rem;
+    }
+
+    .section-dna-social .dna-values-panel h4 {
+        margin-bottom: 1.25rem;
+    }
+}
