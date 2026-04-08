@@ -434,25 +434,31 @@
         </section>
     </main>
     <!-- Footer -->
-    <footer class="w-full py-12 px-8 bg-surface-container-low border-t border-outline-variant/30">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
-            <div class="flex flex-col items-center md:items-start gap-2">
-                <span class="font-headline font-bold text-lg text-primary">DigiSenior</span>
-                <p class="font-body text-sm text-on-surface-variant">© 2026 DigiSenior. Tecnologia que conecta todas as
-                    gerações.</p>
+    <footer class="site-footer w-full font-body" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a class="footer-logo-link" href="#inicio" aria-label="DigiSenior — voltar ao início">
+                        <img alt="DigiSenior" class="footer-logo" height="68" src="logoVelhosSemFundo.png" width="260" />
+                    </a>
+                    <div class="footer-brand-copy">
+                        <p class="footer-tagline">Conectando gerações através da tecnologia.</p>
+                        <p class="footer-copyright">© 2026 DigiSenior. Todos os direitos reservados.</p>
+                    </div>
+                </div>
+                <nav aria-label="Links do rodapé" class="footer-nav">
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Privacidade</a>
+                    <a href="#">Contato</a>
+                    <a href="#">Acessibilidade</a>
+                </nav>
+                <div class="footer-aside">
+                    <button class="footer-back-top group" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                        type="button" aria-label="Voltar ao topo">
+                        <span class="material-symbols-outlined" data-icon="arrow_upward">arrow_upward</span>
+                    </button>
+                </div>
             </div>
-            <div class="flex flex-wrap justify-center gap-8 font-body text-sm">
-                <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Termos de Uso</a>
-                <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Privacidade</a>
-                <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Contato</a>
-                <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Acessibilidade</a>
-            </div>
-            <button
-                class="group text-primary hover:text-primary-container p-2 rounded-full hover:bg-surface-container transition-colors duration-300"
-                onclick="window.scrollTo({top: 0, behavior: 'smooth'})" type="button">
-                <span class="material-symbols-outlined icon-tone-brand ds-icon-interactive"
-                    data-icon="arrow_upward">arrow_upward</span>
-            </button>
         </div>
     </footer>
     <script src="main.js"></script>
